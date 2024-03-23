@@ -1,0 +1,42 @@
+:root {
+    --spacing: 0.4em;
+}
+
+* {
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 5em;
+    text-align: center;
+}
+
+.inputForm {
+    margin: 0 auto;
+}
+
+.inputForm form  {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.inputForm form input {
+    margin: var(--spacing);
+}
+
+.titles {
+    width: 40%;
+    padding: var(--spacing);
+}
+
+.content {
+    width: 60%;
+    height: 100px;
+    padding: var(--spacing);
+    resize: none;
+}
