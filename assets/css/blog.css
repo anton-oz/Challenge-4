@@ -1,0 +1,39 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* height: 100%;
+    width: 100%; */
+}
+
+.postCardContainer {
+    text-align: center;
+    width: 33%;
+    height: 10em;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.songTitle {
+    font-size: 2em;
+    margin: 0 auto;    
+
+}
+
+.artistName {
+    font-size: 1.25em;
+    margin: 0 auto;    
+}
+
+.username {
+    margin: 0 auto;    
+
+}
+
+.postContent {
+    margin: 0 auto;    
+
+}

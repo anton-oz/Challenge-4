@@ -1,0 +1,38 @@
+:root {
+    --spacing: 0.7em;
+}
+
+form  {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+form input {
+    margin: var(--spacing);
+}
+
+#songTitleArtistName {
+    display: flex;
+    flex-direction: row;
+}
+
+.titles {
+    width: 40%;
+    padding: var(--spacing);
+}
+
+.content {
+    width: 60%;
+    height: 100px;
+    padding: var(--spacing);
+    resize: none;
+}
+
+#submit {
+    margin: var(--spacing);
+    font-size: 1.5em;
+}

@@ -1,7 +1,9 @@
 const usernameInput = document.querySelector('#username');
 const songTitleInput = document.querySelector('#songTitle');
+const artistNameInput = document.querySelector('#artistName');
 const recoPostInput = document.querySelector('#recoPost');
 const submitButton = document.querySelector('#submit');
+
 
 submitButton.addEventListener('click', function(e) {
     e.preventDefault();
@@ -9,10 +11,15 @@ submitButton.addEventListener('click', function(e) {
     recoPost = {
         username: usernameInput.value,
         songTitle: songTitleInput.value,
-        recoPost: recoPostInput.value
-    }
+        artistName: artistNameInput.value,
+        postContent: recoPostInput.value
+    };
 
-    console.log()
+    if (!recoPost.username || !recoPost.songTitle || !recoPost.artistName || !recoPost.postContent) {
+        alert('Please fill out all fields before submitting :)')
+    } else {
+        localStorage.setItem('recoPost', JSON.stringify(recoPost))
+        window.location.href = 'blog.html'
+    };
 
-    window.location.href()
-})
+});
