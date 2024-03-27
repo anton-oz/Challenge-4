@@ -22,5 +22,44 @@
 // WHEN I view the footer,
 // THEN I am presented with a link to the developer's portfolio.
 
+const modeButton = document.getElementById('LmDmToggle');
 
+const bodySelect = document.querySelector('body')
+
+console.log(bodySelect)
+
+let toggleVar = localStorage.getItem('togVar')
+
+console.log(toggleVar)
+
+if (!toggleVar) {
+    toggleVar = 0;
+    localStorage.setItem('togVar', JSON.stringify(toggleVar))
+} else {
+    modeCheck()
+};
+
+modeButton.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    if (toggleVar == 0) {
+        bodySelect.setAttribute('style', 'background-color: #3f3a3a; color: #F9F6EE;')
+        toggleVar++
+        localStorage.setItem('togVar', JSON.stringify(toggleVar))
+        console.log(localStorage.getItem('togVar'))
+    } else if (toggleVar == 1) {
+        bodySelect.setAttribute('style', 'background-color: #F9F6E; color: #3f3a3a;')
+        toggleVar--
+        localStorage.setItem('togVar', JSON.stringify(toggleVar))
+        console.log(localStorage.getItem('togVar'))
+    };
+});
+
+function modeCheck() {
+    if (toggleVar == 0) {
+        bodySelect.setAttribute('style', 'background-color: #3f3a3a; color: #F9F6EE;')
+    } else if (toggleVar == 1) {
+        bodySelect.setAttribute('style', 'background-color: #F9F6E; color: #3f3a3a;')
+    }
+}
 

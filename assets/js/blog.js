@@ -1,5 +1,7 @@
 const blogPostSection = document.getElementById('blogPosts');
 
+const clearButton = document.getElementById('clearPosts');
+
 let recoPost = JSON.parse(localStorage.getItem('recoPost'));
 
 let tempArray = JSON.parse(localStorage.getItem('postArray'));
@@ -13,25 +15,25 @@ if (!tempArray) {
         postCardCreate()
         localStorage.setItem('postArray', JSON.stringify(tempArray))
         localStorage.setItem('recoPost', null)
-        console.log(tempArray)
-        console.log('Here Yee')
+        location.reload()
     }
 } else if (tempArray) {
     if (recoPost) {
         tempArray.push(recoPost)
         localStorage.setItem('postArray', JSON.stringify(tempArray))
         localStorage.setItem('recoPost', null)
-        console.log(tempArray)
+        location.reload()
     }
-};  
-
-if (tempArray && tempArray.length > 0) {
-    console.log(tempArray)
     postCardCreate()
-
 };
 
-//localStorage.clear();
+clearButton.addEventListener('click', function(e){
+    e.preventDefault();
+    if (tempArray) {
+        localStorage.setItem('postArray', null)
+    };
+    location.reload();
+})
 
 function postCardCreate() {
     for (post in tempArray) {
@@ -40,7 +42,6 @@ function postCardCreate() {
         artistNameGet(post)
         usernameGet(post)
         postContentGet(post)
-        console.log(post)
     };
 };
 
@@ -83,7 +84,6 @@ function postContentGet(post) {
     let postCont = document.createElement('p')
     postCont.setAttribute('class', 'postContent')
     postCont.textContent = tempArray[post].postContent
-    console.log(tempArray[post].postContent)
     post++
     let idSelect = `card${post}`
     document.getElementById(idSelect).appendChild(postCont)

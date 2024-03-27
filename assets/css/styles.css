@@ -7,6 +7,20 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+.dark {
+    border: 1px solid #3f3a3a;
+    border-radius: 50%;
+}
+
+.light {
+    border: 1px solid #F9F6EE;
+    border-radius: 50%;
+}
+
+.transition {
+    transition-duration: 0.45s;
+}
+
 h1 {
     font-size: 5em;
     text-align: center;
@@ -26,6 +40,5 @@ nav ul {
 
 nav ul li {
     padding: var(--spacing);
-    border: 1px solid black;
     width: fit-content;
 }
