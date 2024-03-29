@@ -14,8 +14,10 @@ if (!tempArray) {
         postCardCreate()
         localStorage.setItem('postArray', JSON.stringify(tempArray))
         localStorage.setItem('recoPost', null)
+        clearButton.style.display = 'content'
         location.reload()
     }
+    clearButton.style.display = 'none'
 } else if (tempArray) {
     if (recoPost) {
         tempArray.push(recoPost)
@@ -26,10 +28,13 @@ if (!tempArray) {
     postCardCreate()
 };
 
+
+
 clearButton.addEventListener('click', function(e){
     e.preventDefault();
     if (tempArray) {
         localStorage.setItem('postArray', null)
+        clearButton.style.display = 'none'
     };
     location.reload();
 });
@@ -64,11 +69,13 @@ function songTitle(post) {
 
 function artistNameGet(post) {
     let subHeading = document.createElement('h3')
+    let hr = document.createElement('hr')
     subHeading.setAttribute('class', 'artistName')
     subHeading.textContent = `~ ${tempArray[post].artistName}`
     post++
     let idSelect = `card${post}`
     document.getElementById(idSelect).appendChild(subHeading)
+    document.getElementById(idSelect).appendChild(hr)
 };
 
 function usernameGet(post) {

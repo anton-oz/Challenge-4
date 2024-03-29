@@ -38,6 +38,7 @@ modeButton.addEventListener('click', function(e) {
 
 });
 
+// gets and sets stored light or dark mode state.
 function initialModeCheck() {
     if (!dark) {
         bodySelect.setAttribute('class', 'light')
@@ -48,7 +49,7 @@ function initialModeCheck() {
     };
 }
 
-
+// gets and sets light or dark mode state on button click
 function modeCheck() {
     if (!dark) {
         dark = true
