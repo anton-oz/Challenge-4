@@ -26,40 +26,39 @@ const modeButton = document.getElementById('LmDmToggle');
 
 const bodySelect = document.querySelector('body')
 
-console.log(bodySelect)
+let dark = JSON.parse(localStorage.getItem('modeState')) || false;
 
-let toggleVar = localStorage.getItem('togVar')
+initialModeCheck();
 
-console.log(toggleVar)
-
-if (!toggleVar) {
-    toggleVar = 0;
-    localStorage.setItem('togVar', JSON.stringify(toggleVar))
-} else {
-    modeCheck()
-};
 
 modeButton.addEventListener('click', function(e) {
     e.preventDefault();
 
-    if (toggleVar == 0) {
-        bodySelect.setAttribute('style', 'background-color: #3f3a3a; color: #F9F6EE;')
-        toggleVar++
-        localStorage.setItem('togVar', JSON.stringify(toggleVar))
-        console.log(localStorage.getItem('togVar'))
-    } else if (toggleVar == 1) {
-        bodySelect.setAttribute('style', 'background-color: #F9F6E; color: #3f3a3a;')
-        toggleVar--
-        localStorage.setItem('togVar', JSON.stringify(toggleVar))
-        console.log(localStorage.getItem('togVar'))
-    };
+    modeCheck();
+
 });
 
-function modeCheck() {
-    if (toggleVar == 0) {
-        bodySelect.setAttribute('style', 'background-color: #3f3a3a; color: #F9F6EE;')
-    } else if (toggleVar == 1) {
-        bodySelect.setAttribute('style', 'background-color: #F9F6E; color: #3f3a3a;')
-    }
+function initialModeCheck() {
+    if (!dark) {
+        bodySelect.setAttribute('class', 'light')
+        modeButton.textContent = 'light mode'
+    } else if (dark) {
+        bodySelect.setAttribute('class', 'dark')
+        modeButton.textContent = 'dark mode'
+    };
 }
 
+
+function modeCheck() {
+    if (!dark) {
+        dark = true
+        bodySelect.setAttribute('class', 'light')
+        localStorage.setItem('modeState', JSON.stringify(dark))
+        document.location.reload()
+    } else if (dark) {
+        dark = false
+        bodySelect.setAttribute('class', 'dark')
+        localStorage.setItem('modeState', JSON.stringify(dark))
+        document.location.reload()
+    };
+};

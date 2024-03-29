@@ -8,11 +8,12 @@ form  {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 40%;
 }
 
 form input {
     margin: var(--spacing);
+    text-align: center;
 }
 
 #songTitleArtistName {
@@ -30,6 +31,7 @@ form input {
     height: 100px;
     padding: var(--spacing);
     resize: none;
+    text-align: center;
 }
 
 #submit {

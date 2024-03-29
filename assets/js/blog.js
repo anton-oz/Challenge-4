@@ -7,7 +7,6 @@ let recoPost = JSON.parse(localStorage.getItem('recoPost'));
 let tempArray = JSON.parse(localStorage.getItem('postArray'));
 
 
-
 if (!tempArray) {
     let tempArray = []
     if (recoPost) {
@@ -33,7 +32,8 @@ clearButton.addEventListener('click', function(e){
         localStorage.setItem('postArray', null)
     };
     location.reload();
-})
+});
+
 
 function postCardCreate() {
     for (post in tempArray) {
@@ -60,25 +60,25 @@ function songTitle(post) {
     post++
     let idSelect = `card${post}`
     document.getElementById(idSelect).appendChild(heading)
-}
+};
 
 function artistNameGet(post) {
     let subHeading = document.createElement('h3')
     subHeading.setAttribute('class', 'artistName')
-    subHeading.textContent = tempArray[post].artistName
+    subHeading.textContent = `~ ${tempArray[post].artistName}`
     post++
     let idSelect = `card${post}`
     document.getElementById(idSelect).appendChild(subHeading)
-}
+};
 
 function usernameGet(post) {
-    let postAuthor = document.createElement('h3')
+    let postAuthor = document.createElement('p')
     postAuthor.setAttribute('class', 'username')
-    postAuthor.textContent = tempArray[post].username
+    postAuthor.textContent = `Submitted by: ${tempArray[post].username}`
     post++
     let idSelect = `card${post}`
     document.getElementById(idSelect).appendChild(postAuthor)
-}
+};
 
 function postContentGet(post) {
     let postCont = document.createElement('p')
@@ -87,4 +87,4 @@ function postContentGet(post) {
     post++
     let idSelect = `card${post}`
     document.getElementById(idSelect).appendChild(postCont)
-}
+};
